@@ -11,6 +11,6 @@ This is just the Zend_Captcha, Zend_Form_Element_Captcha and Zend_Form_Decorator
 
 ## Dropped functionality
 
-`Zend_Captcha_ReCaptcha` and `Zend_Form_Decorator_Captcha_ReCaptcha` have been removed, together with their tests and the requirement on `gizmocraft/zendframework1-service-recaptcha`. They depend on the reCAPTCHA v1 service, which Google shut down in 2018. The Dumb, Figlet, Image and Word captchas, the `Zend_Captcha_Adapter` interface, `Zend_Captcha_Base`, `Zend_Form_Element_Captcha` and the Captcha and Word decorators are unchanged. See `CHANGELOG.md`.
+`Zend_Captcha_ReCaptcha` and `Zend_Form_Decorator_Captcha_ReCaptcha` have been removed, together with their tests and the requirement on `diablomedia/zendframework1-service-recaptcha`. They depend on the reCAPTCHA v1 service, which Google shut down in 2018. The Dumb, Figlet, Image and Word captchas, the `Zend_Captcha_Adapter` interface, `Zend_Captcha_Base`, `Zend_Form_Element_Captcha` and the Captcha and Word decorators are unchanged. This is a breaking change; see `CHANGELOG.md`.
 
 Originally forked from the upstream repository https://github.com/diablomedia/zf1-captcha. Copyright and license of the original authors are kept in LICENSE.txt.
