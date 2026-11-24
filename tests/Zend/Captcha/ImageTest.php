@@ -20,6 +20,7 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
@@ -27,8 +28,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Captcha
  */
+#[Group('Zend_Captcha')]
 class Zend_Captcha_ImageTest extends PHPUnit\Framework\TestCase
 {
     protected $_tmpDir;
@@ -201,9 +202,7 @@ class Zend_Captcha_ImageTest extends PHPUnit\Framework\TestCase
         $this->assertFileDoesNotExist($filename, "File $filename was found even after GC");
     }
 
-    /**
-     * @group ZF-10006
-     */
+    #[Group('ZF-10006')]
     public function testCaptchaImageCleanupOnlyCaptchaFilesIdentifiedByTheirSuffix()
     {
         $this->element->render($this->getView());
@@ -316,9 +315,7 @@ class Zend_Captcha_ImageTest extends PHPUnit\Framework\TestCase
         $this->assertFalse($this->element->isValid('', $input));
     }
 
-    /**
-     * @group ZF-3995
-     */
+    #[Group('ZF-3995')]
     public function testIsValidShouldAllowPassingArrayValueWithNoContext()
     {
         $this->testCaptchaIsRendered();
@@ -326,9 +323,7 @@ class Zend_Captcha_ImageTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($this->element->isValid($input));
     }
 
-    /**
-     * @group ZF-3995
-     */
+    #[Group('ZF-3995')]
     public function testIsValidShouldNotRequireValueToBeNestedArray()
     {
         $this->testCaptchaIsRendered();
@@ -336,9 +331,7 @@ class Zend_Captcha_ImageTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($this->element->isValid($input));
     }
 
-    /**
-     * @group ZF-11483
-     */
+    #[Group('ZF-11483')]
     public function testImageTagRenderedProperlyBasedUponDoctype()
     {
         $this->testCaptchaIsRendered();

@@ -20,6 +20,7 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
@@ -27,8 +28,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Form
  */
+#[Group('Zend_Form')]
 class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
 {
     protected $element;
@@ -88,9 +89,7 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
         $this->assertIsArray($paths);
     }
 
-    /**
-     * @group ZF-12161
-     */
+    #[Group('ZF-12161')]
     public function testSettingCustomCaptchaAdapterPerConstructor()
     {
         $element = new Zend_Form_Element_Captcha(
@@ -112,8 +111,8 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
 
     /**
      * @see   ZF-4038
-     * @group ZF-4038
      */
+    #[Group('ZF-4038')]
     public function testCaptchaShouldRenderFullyQualifiedElementName()
     {
         $form = new Zend_Form();
@@ -127,8 +126,8 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
 
     /**
      * @see   ZF-4038
-     * @group ZF-4038
      */
+    #[Group('ZF-4038')]
     public function testCaptchaShouldValidateUsingFullyQualifiedElementName()
     {
         $this->testCaptchaShouldRenderFullyQualifiedElementName();
@@ -146,9 +145,7 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($valid, var_export($this->form->getMessages(), 1));
     }
 
-    /**
-     * @group ZF-4822
-     */
+    #[Group('ZF-4822')]
     public function testDefaultDecoratorsShouldIncludeErrorsDescriptionHtmlTagAndLabel()
     {
         $decorators = $this->element->getDecorators();
@@ -159,9 +156,7 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
         $this->assertArrayHasKey('Zend_Form_Decorator_Label', $decorators, 'Missing Label decorator' . var_export(array_keys($decorators), 1));
     }
 
-    /**
-     * @group ZF-5855
-     */
+    #[Group('ZF-5855')]
     public function testHelperDoesNotShowUpInAttribs()
     {
         $this->assertArrayNotHasKey('helper', $this->element->getAttribs());
@@ -178,9 +173,7 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
         $this->assertSame($this->element, $this->element->loadDefaultDecorators());
     }
 
-    /**
-     * @group ZF-11609
-     */
+    #[Group('ZF-11609')]
     public function testDefaultDecoratorsBeforeAndAfterRendering()
     {
         /**
@@ -218,9 +211,7 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @group ZF-11609
-     */
+    #[Group('ZF-11609')]
     public function testDefaultDecoratorsBeforeAndAfterRenderingWhenDefaultDecoratorsAreDisabled()
     {
         $element = new Zend_Form_Element_Captcha(
@@ -245,9 +236,7 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
         $this->assertEmpty($decorators);
     }
 
-    /**
-     * @group ZF-11609
-     */
+    #[Group('ZF-11609')]
     public function testIndividualDecoratorsBeforeAndAfterRendering()
     {
         // Disable default decorators is true
@@ -348,9 +337,7 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @group ZF-12173
-     */
+    #[Group('ZF-12173')]
     public function testShouldAllowAddingCaptchaPrefixPathWithBackslash()
     {
         $this->element->addPrefixPath('My\Captcha', 'My/Captcha/', 'captcha');
@@ -359,9 +346,7 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
         $this->assertIsArray($paths);
     }
 
-    /**
-     * @group ZF-12173
-     */
+    #[Group('ZF-12173')]
     public function testAddingCaptchaPrefixPathWithBackslash()
     {
         $this->element->addPrefixPath('My\\', 'My/');

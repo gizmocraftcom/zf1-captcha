@@ -20,6 +20,7 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
@@ -27,8 +28,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Captcha
  */
+#[Group('Zend_Captcha')]
 class Zend_Captcha_DumbTest extends PHPUnit\Framework\TestCase
 {
     protected $word;
@@ -78,26 +79,20 @@ class Zend_Captcha_DumbTest extends PHPUnit\Framework\TestCase
         $this->assertStringNotContainsString($word, $html);
     }
 
-    /**
-     * @group ZF-11522
-     */
+    #[Group('ZF-11522')]
     public function testDefaultLabelIsUsedWhenNoAlternateLabelSet()
     {
         $this->assertEquals('Please type this word backwards', $this->captcha->getLabel());
     }
 
-    /**
-     * @group ZF-11522
-     */
+    #[Group('ZF-11522')]
     public function testChangeLabelViaSetterMethod()
     {
         $this->captcha->setLabel('Testing');
         $this->assertEquals('Testing', $this->captcha->getLabel());
     }
 
-    /**
-     * @group ZF-11522
-     */
+    #[Group('ZF-11522')]
     public function testRendersLabelUsingProvidedValue()
     {
         $this->captcha->setLabel('Testing 123');

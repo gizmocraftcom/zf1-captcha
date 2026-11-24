@@ -20,6 +20,8 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
@@ -27,8 +29,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Captcha
  */
+#[Group('Zend_Captcha')]
 class Zend_Captcha_FigletTest extends PHPUnit\Framework\TestCase
 {
     protected $word;
@@ -239,9 +241,7 @@ class Zend_Captcha_FigletTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($options, $test);
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
+    #[DoesNotPerformAssertions]
     public function testShouldAllowFigletsLargerThanFourteenCharacters()
     {
         $this->captcha->setName('foo')
@@ -267,9 +267,7 @@ class Zend_Captcha_FigletTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(false, $this->captcha->isValid(null, $empty));
     }
 
-    /**
-     * @group ZF-3995
-     */
+    #[Group('ZF-3995')]
     public function testIsValidShouldAllowPassingArrayValueAndOmittingContext()
     {
         $this->testCaptchaIsRendered();
@@ -277,9 +275,7 @@ class Zend_Captcha_FigletTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($this->element->isValid($input));
     }
 
-    /**
-     * @group ZF-3995
-     */
+    #[Group('ZF-3995')]
     public function testIsValidShouldNotRequireValueToBeNestedArray()
     {
         $this->testCaptchaIsRendered();
@@ -287,9 +283,7 @@ class Zend_Captcha_FigletTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($this->element->isValid($input));
     }
 
-    /**
-     * @group ZF-5728
-     */
+    #[Group('ZF-5728')]
     public function testSetSessionWorks()
     {
         if (headers_sent($file, $line)) {
