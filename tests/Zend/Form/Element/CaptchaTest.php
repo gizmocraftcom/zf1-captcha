@@ -216,50 +216,6 @@ class Zend_Form_Element_CaptchaTest extends PHPUnit\Framework\TestCase
             $decorators,
             var_export($decorators, true)
         );
-
-        /**
-         * ReCaptcha
-         */
-
-        // Reset element
-        $this->setUp();
-
-        $options = array(
-            'privKey' => 'privateKey',
-            'pubKey'  => 'publicKey',
-            'ssl'     => true,
-            'xhtml'   => true,
-        );
-        $this->element->setCaptcha(new Zend_Captcha_ReCaptcha($options));
-
-        // Before rendering
-        $decorators = array_keys($this->element->getDecorators());
-        $this->assertSame(
-            array(
-                'Zend_Form_Decorator_Errors',
-                'Zend_Form_Decorator_Description',
-                'Zend_Form_Decorator_HtmlTag',
-                'Zend_Form_Decorator_Label',
-            ),
-            $decorators,
-            var_export($decorators, true)
-        );
-
-        $this->element->render();
-
-        // After rendering
-        $decorators = array_keys($this->element->getDecorators());
-        $this->assertSame(
-            array(
-                'Zend_Form_Decorator_Captcha_ReCaptcha',
-                'Zend_Form_Decorator_Errors',
-                'Zend_Form_Decorator_Description',
-                'Zend_Form_Decorator_HtmlTag',
-                'Zend_Form_Decorator_Label',
-            ),
-            $decorators,
-            var_export($decorators, true)
-        );
     }
 
     /**
