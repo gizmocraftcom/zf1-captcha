@@ -1,7 +1,6 @@
 # Zend Framework 1 - Captcha
 
 [![Build](https://github.com/gizmocraftcom/zf1-captcha/workflows/Build/badge.svg?event=push)](https://github.com/gizmocraftcom/zf1-captcha/actions?query=workflow%3ABuild+event%3Apush)
-[![codecov](https://codecov.io/gh/gizmocraftcom/zf1-captcha/branch/master/graph/badge.svg)](https://codecov.io/gh/gizmocraftcom/zf1-captcha)
 [![Latest Stable Version](https://poser.pugx.org/gizmocraft/zendframework1-captcha/v/stable)](https://packagist.org/packages/gizmocraft/zendframework1-captcha)
 [![Total Downloads](https://poser.pugx.org/gizmocraft/zendframework1-captcha/downloads)](https://packagist.org/packages/gizmocraft/zendframework1-captcha)
 [![License](https://poser.pugx.org/gizmocraft/zendframework1-captcha/license)](https://packagist.org/packages/gizmocraft/zendframework1-captcha)
